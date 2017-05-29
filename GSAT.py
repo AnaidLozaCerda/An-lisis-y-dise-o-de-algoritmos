@@ -10,11 +10,12 @@ import random
 
 class GSAT():
     x=[]
+
     ecuaciones=[(-1, -2, -3),(-2, 3,-4,),(-3, 2, 4)]
     verdadero=0
     sx=0
     for i in range(4):
-        x.append(random.randint(0,1))
+        x.append(random.choice([0,1]))
     
     
     def switch(self, variables):
@@ -41,7 +42,11 @@ class GSAT():
         while self.verdadero != len(self.ecuaciones):    
             for j in range(len(self.ecuaciones)):
                 for k in self.ecuaciones[j]:
-                    self.sx+=self.x[abs(k)-1]
+                    if k < 0 :
+                        self.sx+= (self.x[abs(k)-1] * -1)
+                    else:
+                        self.sx+= self.x[abs(k)-1]
+                    
                         
                 if self.sx>0: 
                     self.verdadero+=1
@@ -57,3 +62,5 @@ class GSAT():
         if s>0: self.x[s]=0 
         else: self.x[s]=1
 '''
+
+a = GSAT()
