@@ -5,65 +5,44 @@ Created on Mon May 29 02:01:07 2017Created on Sun May 21 23:25:00 2017
 
 @author: anaid
 """
-import grafo
-#grafo={(3,1,2,4):[(1,3,2,4),(3,2,1,4),(3,1,4,2)],(1,3,2,4):[(3,1,2,4),(1,2,3,4),(1,3,4,2)],(3,2,1,4):[(2,3,1,4),(3,1,2,4),(3,2,4,1)],(3,1,4,2):[(1,3,4,2),(3,4,1,2),(3,1,2,4)]}
-
-grafo=Grafo.nuevoArbolPuzleLineal((3,1,2,4))
-
-def nuevoArbolPuzleLineal(raiz):
-    siguienteNivel=[raiz]
-    grafo={}
-    vistos=[]
-    padre=None
-    siguienteNivel.append(raiz)
-    while len(siguienteNivel)!=0:
-        nodo=siguienteNivel.pop[0]  
-        if nodo not in vistos:
-            hijos=[nodo[1],nodo[0],nodo[3],nodo[4]]
-            grafo[nodo]={"hijos":hijos, "padre":padre}
-            vistos.append(nodo)
-            if len(siguienteNivel)==0:
-                padre=nodo
-                siguienteNivel.append(hijos)
 
 
-def BFS(grafo, solucion):
-    encontrado=False
-    nVisitados=[]
-    nSiguientes=[]
-    camino=[]
-    nSiguientes.append(grafo.keys()[0])
-    while not encontrado and len(nSiguientes)!=0:
-        #print "frontera: " + str(nSiguientes)
-        nodo=nSiguientes.pop(0)
-        #print "despues del pop nodo: "+ str(nodo) + "=="+ str(solucion) +" solucion " + str(nodo==solucion)
-        if nodo == solucion:
-        #    print "nodo: "+ str(nodo) + " solucion: " + str(solucion)
-            encontrado=True
-            camino.append(nodo)
-            while grafo[nodo]>0:
-            #    print "encontrado: " + str(encontrado)
-                return nVisitados
-        else:
-#            print "nodo: "+ str(nodo)
-#            print "Hijos: " + str(grafo.get(nodo))
-#            print "Entrara al if? "+ str(nodo not in nVisitados)
-            if grafo.get(nodo) > 0 and nodo not in nVisitados:
-#                print "nodo "+ str(grafo.get(nodo))+" ya visitado?"+ str((grafo.get(nodo)) not in nVisitados)
-#                print "Frontera "
-#                print (nFrontera)
-                nSiguientes+=grafo.get(nodo)
-        
-        nVisitados.append(nodo)
-#        print "visitados: " + str(nVisitados)
-    
-    return "No se encontro"
+def metodo(solucion,etapa):
+	n = 8
+	reinas = []
+	if etapa < n:
+		while True:
+			if (solucion[etapa] < n):
+				solucion[etapa] = solucion[etapa] + 1
+			if (validar(solucion,etapa)):
+				if etapa == n-1:
+					etiqueta = "ABCDEFGHIJKLM"
+					for x in range(0,n):
+						reinas.append(str(etiqueta[solucion[x] - 1]) + str(x))
+				else:
+					reinas = metodo(solucion, etapa+1)
+					if len(reinas)==0:
+						solucion[etapa+1] = 0
+			if (solucion[etapa]==n or len(reinas)):
+				break
+	return reinas
 
 
-# Rompe Cabezas Lineal con DFS
-BFS(grafo, (1,2,3,4))
+def validar(solucion,etapa):
+	for i in range(etapa):
+		if(solucion[i] == solucion[etapa]) or (abs(solucion[i] - solucion[etapa])==abs(i - etapa)):
+			return False
+	return True
 
 
+
+solucion = []
+for i in range(0,8):
+	solucion.append(0)
+etapa = 0
+print metodo(solucion, etapa)
+
+'''
 
 
 def DFS(grafo, solucion):
@@ -86,3 +65,4 @@ def DFS(grafo, solucion):
     
     
     return "No se encontro"
+    '''
