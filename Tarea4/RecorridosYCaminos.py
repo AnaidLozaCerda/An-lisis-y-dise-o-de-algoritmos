@@ -10,6 +10,23 @@ import grafo
 
 grafo=Grafo.nuevoArbolPuzleLineal((3,1,2,4))
 
+def nuevoArbolPuzleLineal(raiz):
+    siguienteNivel=[raiz]
+    grafo={}
+    vistos=[]
+    padre=None
+    siguienteNivel.append(raiz)
+    while len(siguienteNivel)!=0:
+        nodo=siguienteNivel.pop[0]  
+        if nodo not in vistos:
+            hijos=[nodo[1],nodo[0],nodo[3],nodo[4]]
+            grafo[nodo]={"hijos":hijos, "padre":padre}
+            vistos.append(nodo)
+            if len(siguienteNivel)==0:
+                padre=nodo
+                siguienteNivel.append(hijos)
+
+
 def BFS(grafo, solucion):
     encontrado=False
     nVisitados=[]
@@ -37,10 +54,8 @@ def BFS(grafo, solucion):
 #                print (nFrontera)
                 nSiguientes+=grafo.get(nodo)
         
-        
         nVisitados.append(nodo)
 #        print "visitados: " + str(nVisitados)
-    
     
     return "No se encontro"
 
