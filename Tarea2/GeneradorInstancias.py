@@ -10,24 +10,11 @@ Se considera que el costo de ir de la ciudad A a la ciudad B es el mismo que ir 
 @author: anaid
 """
 import random 
-
-
+'''
 matriz=[]
 
-def validate(n1, n2):
-    if n1==n2:
-        return True
-    elif matriz.get(n1)==n2:    
-        return True
-    elif matriz.get(n2)==n1:
-        return True
-    else:
-        return False4
-
-
-'''
-def grafo():
-        archivo = open("instancias.txt", "w+")
+def genUni():
+    archivo = open("instancias.txt", "w+")
     n = random.randint(2,10)
     #m = random.randint(n-1, n*(n-1))
     
@@ -55,8 +42,6 @@ def grafo():
 def main():
     archivo = open("instancias.txt", "w+")
     n=int(input("Cuantas ciudades desea agregar?: "))
-    #n = random.randint(2,10)
-    #m = random.randint(n-1, n*(n-1))
     
     archivo.writelines("c Esto es un archivo con instancias para grafos. \np did "+ str(n) +"\n")
     
@@ -66,14 +51,10 @@ def main():
             #n2=random.randint(1,n)
             #while n1 == n2 :
             #    n2=random.randint(1,n)
-            
             if n1 >= n2:
                 continue
-            
             a="e "+ str(n1)+" "+str(n2)+" "+str(random.randint(0, 100))+" "+str(random.randint(0,100))+"\n" 
             archivo.writelines(a)
-
-
     archivo.close()
     
 if __name__ == "__main__":
