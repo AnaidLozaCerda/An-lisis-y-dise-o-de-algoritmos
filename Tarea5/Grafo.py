@@ -98,8 +98,8 @@ class Grafo():
 
 
 
-a = Grafo()
-print a.conexiones(3)
+#a = Grafo()
+#print a.conexiones(3)
 #print a.hijos(3)
 #print a.padres(3)
 

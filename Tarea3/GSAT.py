@@ -7,9 +7,13 @@ Created on Sun May 21 23:25:00 2017
 """
 import random
 from copy import copy
+from reader import reader
 
 class GSAT():
     collector = []
+    maxIter=100
+    i=0
+    
     def negar(self, value):
         if value == 0:
             return 1
@@ -28,40 +32,42 @@ class GSAT():
         for clausule in clausules:
             counter = 0
             for rule in clausule:
-                if rule < 0:
-                    counter += self.negar(choises[abs(rule) - 1])
+                if (int(rule) < 0):
+                    counter += self.negar(choises[(abs(rule) - 2)])
                 else:
-                    counter += choises[abs(rule) - 1]
+                    counter += choises[abs(rule) - 2]
             if(counter == 0):
                 return False
         return True
     
     
     def solve(self,clausules, choises):
-        if(self.validate(clausules, choises)):
+        self.i+=1
+        if(self.validate(clausules, choises) or self.i>self.maxIter):
             return choises
         else:
             solution = None
-            for n in range(0, len(choises)):
+            for x in range(0, len(choises)):
                 c2 = copy(choises)
-                c2[n] = self.negar(c2[n])
+                c2[x] = self.negar(c2[x])
                 if(self.valid(c2)):
                     solution = self.solve(clausules, c2)
                     if(solution != None):
                         break
+                else:
+                    continue
             return solution
     
     #Metodo main
-    def __init__(self, clausules):
-        nx = len(clausules[0])
+    def __init__(self, clausules, v):
         x = []
-        for i in range(0, nx):
+        for i in range(0, v):
             x.append(random.choice([0, 1]))
         print self.solve(clausules, x)
 
 
 
 
-
-clausules = [[-1, 2, 3], [-1, 3, -2], [-3, -2, 1]]
-gsat=GSAT(clausules)
+clausules = reader("instancia.txt")
+#clausules = [[-1, 2, 3], [-1, 3, -2], [-3, -2, 1]]
+gsat=GSAT(clausules["matriz"],clausules["variables"])

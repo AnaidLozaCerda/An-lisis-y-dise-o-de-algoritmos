@@ -1,0 +1,21 @@
+Test con 30 instansias
+Kruskal 1: 
+('Tiempo de ejecucion: ', 0.05871415138244629)
+Kruskal 2: 
+('Tiempo de ejecucion: ', 0.056524038314819336)
+Test con 80 instansias
+Kruskal 1: 
+('Tiempo de ejecucion: ', 3.045670986175537)
+Kruskal 2:
+('Tiempo de ejecucion: ', 3.064969062805176)
+Test con 100 instansias
+Kruskal 1: 
+('Tiempo de ejecucion: ', 8.899430990219116)
+Kruskal 2: 
+('Tiempo de ejecucion: ', 9.280539989471436)
+Test con 150 instansias
+Kruskal 1: 
+('Tiempo de ejecucion: ', 60.12621808052063)
+Kruskal 2:
+('Tiempo de ejecucion: ', 60.42361116409302)
+
