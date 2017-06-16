@@ -4,7 +4,7 @@
 Created on Sun May 21 23:01:11 2017
 
  Flujos y árboles de expansión - kruskal, alta y uniforme
- Este codigo tiene influencias del encontrado en la pagina: 
+ Este codigo tiene influencias del encontrado en la pagina: http://elisa.dyndns-web.com/teaching/mat/md.html que se vio en clase, la intencion de tomar este código fue para compararlo en cuanto a funcionamiento y eficacia.
 
 @author: anaid
 """

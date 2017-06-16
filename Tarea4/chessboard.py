@@ -2,7 +2,7 @@
 import turtle
 
 
-
+# Este codigo fue tomado para hacer pruebas y visualizar mejor el algoritmo de la reyna
 
 #obtenemos las caracteristicas
 wn=turtle.Screen()

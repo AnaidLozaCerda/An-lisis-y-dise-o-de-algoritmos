@@ -1,0 +1,3 @@
+c Esto es un archivo con una evaluación sobre el tiempo vs las instancias. 
+c info #variables #clausulas tiempo
+4 10 0.000224113464355 True

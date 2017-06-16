@@ -3,7 +3,7 @@
 """
 Created on Sun May 21 23:01:11 2017
 
-Programa de aleatorización, donde siempre se obtendran respuestas aleatorias aun que no siempre seran 
+Programa de aleatorización, donde siempre se obtendran respuestas aleatorias aun que no se asegura que sean optimos 
 
 @author: anaid
 """
@@ -46,3 +46,4 @@ def DFS(n, fila, current):
     return result
 
 print DFS(8, 0, [])
+z

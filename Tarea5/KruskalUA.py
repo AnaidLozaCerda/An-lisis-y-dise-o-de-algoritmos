@@ -3,6 +3,8 @@
 """
 Created on Sun May 21 23:01:11 2017
 
+ Flujos y árboles de expansión - kruskal, alta y uniforme, este es elc odigo desarrollado sin ninguna influencia
+
 @author: anaid
 """
 from heapq import merge
